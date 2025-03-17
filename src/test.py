@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
-import config
+from src import config
+
 
 def test_model(model, test_loader, load_path="model.pth"):
     model.load_state_dict(torch.load(load_path, weights_only=True))

@@ -8,8 +8,8 @@ import os
 
 if __name__ == "__main__":
     model = ConvNet()
-    default_model_path = "model.pth"
-    best_model_path = "best_model.pth"
+    default_model_path = "../models/model.pth"
+    best_model_path = "../models/best_model.pth"
     start_from_scratch = False
 
     if not start_from_scratch and os.path.exists(best_model_path):
@@ -27,8 +27,8 @@ if __name__ == "__main__":
 
     if train:
         train_losses = train_model2(model, config.train_loader, epochs=5,
-                                  save_path=default_model_path,
-                                  best_model_path=best_model_path)
+                                    save_path=default_model_path,
+                                    best_model_path=best_model_path)
         test_losses, accuracies = [], []
         for epoch in range(5):
             test_loss, accuracy, preds, labels = test_model(model, config.test_loader, load_path=default_model_path)
