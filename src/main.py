@@ -8,8 +8,8 @@ import os
 
 if __name__ == "__main__":
     model = ConvNet()
-    default_model_path = "../models/model.pth"
-    best_model_path = "../models/best_model.pth"
+    default_model_path = "/Users/junqiang/PycharmProjects/PythonProject3/models/model.pth"
+    best_model_path = "/Users/junqiang/PycharmProjects/PythonProject3/models/best_model.pth"
     start_from_scratch = False
 
     if not start_from_scratch and os.path.exists(best_model_path):
@@ -23,10 +23,11 @@ if __name__ == "__main__":
 
     model.to(config.device)
     visualizer = Visualizer()
-    train = True
+    # train = True
+    train = False
 
     if train:
-        train_losses = train_model2(model, config.train_loader, epochs=5,
+        train_losses = train_model2(model, config.train_loader, epochs=1,
                                     save_path=default_model_path,
                                     best_model_path=best_model_path)
         test_losses, accuracies = [], []
